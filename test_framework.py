@@ -8,6 +8,7 @@ class TestFramework:
         self.module = self.load_module(module_name)
         self.unimplemented_functions = []
         self.test_file = None
+        self.total_score = 0
 
     def load_module(self, module_name):
         try:
@@ -30,18 +31,23 @@ class TestFramework:
             sys.exit(1)
 
     def run_tests(self):
+        tests_for_module = len(self.unimplemented_functions)
+        temp = 0
         for function_name in self.unimplemented_functions:
             try:
                 test_function = getattr(self.test_module, f"test_{function_name}")
                 test_result = test_function()
                 print(f"Function {function_name}: {test_result}")
+                if(test_result == "PASSED"):
+                    temp += 1
             except NotImplementedError:
                 print(f"Function {function_name}: NOT IMPLEMENTED")
             except AssertionError:
                 print(f"Function {function_name}: FAILED")
             except Exception as e:
                 print(f"Function {function_name}: ERROR - {e}")
-
+        if(temp == tests_for_module):
+            self.total_score += 1
 def main():
     problems_file = "assessment.json"
     with open(problems_file) as f:
@@ -62,5 +68,9 @@ def main():
         test_framework.run_tests()
         print()
 
+    output_data = {"output": test_framework.total_score}
+
+    with open('output.json', 'w') as json_file:
+        json.dump(output_data, json_file)
 if __name__ == "__main__":
     main()
