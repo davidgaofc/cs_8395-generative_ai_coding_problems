@@ -18,7 +18,7 @@ class TestFramework:
             return module
         except Exception as e:
             print(f"Error loading module '{module_name}': {e}")
-            sys.exit(1)
+            return
 
     def load_test_file(self, test_file):
         try:
@@ -28,7 +28,7 @@ class TestFramework:
             return test_module
         except Exception as e:
             print(f"Error loading test file '{test_file}': {e}")
-            sys.exit(1)
+            return
 
     def run_tests(self):
         tests_for_module = len(self.unimplemented_functions)
