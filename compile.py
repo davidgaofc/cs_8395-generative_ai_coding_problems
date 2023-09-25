@@ -31,7 +31,9 @@ def process_file(file_path):
 
 # The directory containing your Python files
 DIRECTORY_PATH = "problems"
-
-process_directory(DIRECTORY_PATH)
+try:
+    process_directory(DIRECTORY_PATH)
+except:
+    pass
 
 
