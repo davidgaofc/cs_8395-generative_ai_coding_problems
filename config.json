@@ -2,5 +2,6 @@
     "name": "david_test",
     "model": "default",
     "run_test": "python3 compile.py",
-    "run_score": "python3 test_framework.py"
+    "run_score": "python3 test_framework.py",
+    "tags": ["david"]
 }
