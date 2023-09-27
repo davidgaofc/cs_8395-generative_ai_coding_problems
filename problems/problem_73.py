@@ -1,3 +1,4 @@
+#return the solution only with no talking keeping in mind that it will be directly inputted into a python file
 class TicTacToe:
     """
     A class that represents a simple game of Tic-Tac-Toe.

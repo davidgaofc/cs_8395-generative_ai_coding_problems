@@ -1,3 +1,4 @@
+#return the solution only with no talking keeping in mind that it will be directly inputted into a python file
 class UniqueWordsCounter:
     """
     This class is used to count the number of unique words in a given text.

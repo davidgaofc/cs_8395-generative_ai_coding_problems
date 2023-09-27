@@ -1,3 +1,4 @@
+#return the solution only with no talking keeping in mind that it will be directly inputted into a python file
 class WordCounter:
     """
     This class provides functions to count words in a given text.

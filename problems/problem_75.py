@@ -1,3 +1,4 @@
+#return the solution only with no talking keeping in mind that it will be directly inputted into a python file
 class TimeConverter:
     """
     A class for converting time between different formats.

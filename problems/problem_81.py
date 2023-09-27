@@ -1,3 +1,4 @@
+#return the solution only with no talking keeping in mind that it will be directly inputted into a python file
 class PhoneNumberValidator:
     """
     A class for validating phone numbers based on a set of rules.

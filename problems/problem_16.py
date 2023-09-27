@@ -1,3 +1,4 @@
+#return the solution only with no talking keeping in mind that it will be directly inputted into a python file
 class Product:
     def __init__(self, product_id, name, price):
         """
