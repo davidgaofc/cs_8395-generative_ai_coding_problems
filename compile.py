@@ -20,7 +20,7 @@ def process_file(file_path):
     with open(file_path, 'r') as f:
         file_content = f.read()
 
-    response = llm.predict(file_content)
+    response = llm.predict("Generate a Python function adhering to the following prompt: \n"+file_content +"\nProvide only the code. If you need to use helper functions, they should be defined before the function. Do not include tests or any other information. Your response will be directly executed and tested.")
     new_content = response.choices[0].text.strip()
     output = new_content.replace("```python", "").replace("```py", "").replace("```", "").strip()
 
