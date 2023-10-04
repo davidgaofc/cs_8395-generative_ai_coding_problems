@@ -1,8 +1,11 @@
 import os
 import openai
 
-# Set your OpenAI API key
-openai.api_key = "YOUR_OPENAI_API_KEY"
+import sys
+from llm_test_helpers import get_llm, get_args
+
+args = get_args(sys.argv)
+llm = get_llm(args.model)
 
 def process_directory(directory_path):
     for root, dirs, files in os.walk(directory_path):
@@ -17,16 +20,12 @@ def process_file(file_path):
     with open(file_path, 'r') as f:
         file_content = f.read()
 
-    response = openai.Completion.create(
-        engine="davinci",
-        prompt=file_content,
-        max_tokens=150  # Adjust as necessary
-    )
-
+    response = llm.predict(file_content)
     new_content = response.choices[0].text.strip()
+    output = new_content.replace("```python", "").replace("```py", "").replace("```", "").strip()
 
     with open(file_path, 'w') as f:
-        f.write(new_content)
+        f.write(output)
 
 
 # The directory containing your Python files
