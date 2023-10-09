@@ -1,11 +1,16 @@
 import os
 import openai
+from langchain.llms import OpenAI
 
 import sys
-from llm_test_helpers import get_llm, get_args
 
-args = get_args(sys.argv)
-llm = get_llm(args.model)
+try:
+    from llm_test_helpers import get_llm, get_args
+
+    args = get_args(sys.argv)
+    llm = get_llm(args.model)
+except:
+    llm = OpenAI()
 
 def process_directory(directory_path):
     for root, dirs, files in os.walk(directory_path):
