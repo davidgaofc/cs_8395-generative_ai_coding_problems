@@ -1,7 +1,7 @@
 {
     "name": "david_test",
     "model": "default",
-    "run_test": "python3 compile.py",
+    "run_test": "python3 compile.py --model openai-latest",
     "run_score": "python3 test_framework.py",
     "tags": ["david"]
 }
